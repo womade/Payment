@@ -1,22 +1,17 @@
-<!DOCTYPE html>
- <html lang="zh">
+ <!DOCTYPE html>
+ <html lang="zh-CN">
  
  <head>
-     <title>向楊遠徵付款2</title>
+     <title>向楊遠徵付款</title>
      <meta charset="utf-8">
      <meta name="author" content="楊遠徵" />
      <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><!-- Upgrade HTTP Connections to HTTPS - Default -->
      <meta name="Keywords" content="Merger,open source,hxco,hifocus,merge qrcode,qrcode" />
      <meta name="Description" content="Merger is the most simple way to merge your qrcode together." />
-     <link rel="shortcut icon" type="image/x-icon" href="https://ae01.alicdn.com/kf/HTB1f13oclCw3KVjSZFuq6AAOpXau.jpg">
-
-     <!-- Load style files from local -->
-     <!-- <link rel="stylesheet" href="assets/styles/spectre.css/spectre.min.css">
-     <link rel="stylesheet" href="assets/styles/style.min.css"> -->
-     
-     <!-- Load style files from jsDelivr - Default -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/picturepan2/spectre@0.5.7/dist/spectre.min.css,gh/hifocus/merger@0.14/assets/styles/style.min.css">
+     <link rel="shortcut icon" type="image/x-icon" href="https://womade.github.io/ICON/Z.ico">
+     <link rel="stylesheet" href="spectre.css">
+     <link rel="stylesheet" href="style.css">
 
  </head>
  
@@ -24,23 +19,20 @@
  
      <script>
  
-         var wechat = "wxp://f2f0zcK8omGKTdqPDzwHNfXh3k1ER7KbVmsR";
+         var zpay = "https://qr.95516.com/01020001/wcqr?f=ICBCqr&X=1&T=3&P=13&I=e03d925776684b4d&N=b4cbb142eeafe2bddce7a7878c57f5ca&L=3f7aafc9dbc03de742513fbb73a33800bf9a590e49f1bd1328d82393d1c6a336d553fe18939ac0f27ce71ab7142453692e8d947bfddbb6b3";
+         var unionpay = "https://qr.95516.com/00010000/01002372382704087818845140120727";
          var alipay = "HTTPS://QR.ALIPAY.COM/TSX043187C9TT1C7I41P8B";
+         var wechat = "wxp://f2f0zcK8omGKTdqPDzwHNfXh3k1ER7KbVmsR";
          var tenpay = "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&f=wallet&a=1&ac=CAEQq9LxnQIYvtmW-AU%3D_xxx_sign&u=599550251&n=%E2%98%BB";
          var paypal = "https://qr.95516.com/01020001/wcqr?f=ICBCqr&X=1&T=3&P=13&I=e03d925776684b4d&N=b4cbb142eeafe2bddce7a7878c57f5ca&L=3f7aafc9dbc03de742513fbb73a33800bf9a590e49f1bd1328d82393d1c6a336d553fe18939ac0f27ce71ab7142453692e8d947bfddbb6b3";
  
-         // Replace with your id and profile photo link ↓.
-         var myname = "【狐灵科技】";
-         var profile ="https://ae01.alicdn.com/kf/HTB1f13oclCw3KVjSZFuq6AAOpXau.jpg";
+         var myname = "楊遠徵";
+         var profile ="https://womade.gitee.io/HI.png";
  
-         // Replace the title and subtitle if preferred (not required) ↓.
          var title = "选择你的支付方式";
-         var subtitle = "跟随进一步的指示以向" + myname + "付款";
+         var subtitle = "确认收款人为" + myname + "后再付款";
  
-         // See if you would like to enable debug mode (as console.log). If debug mode is disabled, the console will be cleared.
-         // To disable it, comment out (or just delete) the `var debugmode = "xxx" part` ↓.
          var debugmode = "true";
-         // QQ Mobile wouldn't decode qrcode from `data:image`, so for qq mobile only speical qrcode that generate from qrcode api is required.
          var qrcodeapi = "https://www.zhihu.com/qrcode?url=";
          // var qrcodeapi = "https://chart.googleapis.com/chart?chs=500x500&cht=qr&chld=L|1&choe=UTF-8&chl="; // Inaccessible in China. Backup use only.
 
@@ -55,10 +47,12 @@
              <!-- Button Part Starts -->
              <div id="pending">
                 <p id="depends" class="middlebtn">
-                    <a href="#showqrcode" class="btn btn-primary" onclick="openwechat()" id="toclick"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weixinzhifu"></use></svg></a>
-                    <a href="#showqrcode" class="btn btn-primary" onclick="openalipay()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-iconfontrectangle390"></use></svg></a>
-                    <a href="#showqrcode" class="btn btn-primary" onclick="opentenpay()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ"></use></svg></a>
-                    <button class="btn btn-primary" id="paypalbtn" onclick="openbox()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-paypal"></use></svg></button>
+                    <a href="#showqrcode" class="btn btn-primary" onclick="openzpay()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Z-Pay"></use></svg></a>
+                    <a href="#showqrcode" class="btn btn-primary" onclick="openunionpay()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-UnionPay"></use></svg></a>
+                    <a href="#showqrcode" class="btn btn-primary" onclick="openalipay()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-Alipay"></use></svg></a>
+                    <a href="#showqrcode" class="btn btn-primary" onclick="openwechatpay()" id="toclick"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-WeChat-Pay"></use></svg></a>
+                    <a href="#showqrcode" class="btn btn-primary" onclick="opentenpay()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-QQ-Pay"></use></svg></a>
+                    <button class="btn btn-primary" id="paypalbtn" onclick="openbox()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-PayPal"></use></svg></button>
             </p>
              </div>
 
@@ -81,10 +75,13 @@
              </div>
              <!-- Modal Part Ends -->
 
+
      <script src="jquery.min.js"></script>
      <script src="jquery-qrcode.min.js"></script>
      <script src="function.min.js"></script>
-     <script src="iconfont.js"></script> -->
+     <script src="iconfont.min.js"></script>
+     <script type="text/javascript" src="https://js.users.51.la/20838387.js"></script>
+
 
      </body>
      
