@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+  <head>
+    <title>在线支付 - 中國遠徵</title>
+    <meta charset="utf-8">
+    <meta name="author" content="楊遠徵" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- Upgrade HTTP Connections to HTTPS - Default -->
+    <meta name="Keywords" content="qrcode,pay,yuanzheng" />
+    <meta name="Description" content="Pay for Yuanzheng Online" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./spectre.css">
+    <link rel="stylesheet" href="./style.css"></head>
+  
+  <body>
+    <script>var zpay = "https://qr.95516.com/01020001/wcqr?f=ICBCqr&X=1&T=3&P=13&I=e03d925776684b4d&N=b4cbb142eeafe2bddce7a7878c57f5ca&L=3f7aafc9dbc03de742513fbb73a33800bf9a590e49f1bd1328d82393d1c6a336d553fe18939ac0f27ce71ab7142453692e8d947bfddbb6b3";
+      var unionpay = "https://qr.95516.com/00010000/01002372382704087818845140120727";
+      var alipay = "HTTPS://QR.ALIPAY.COM/TSX043187C9TT1C7I41P8B";
+      var wechat = "wxp://f2f0zcK8omGKTdqPDzwHNfXh3k1ER7KbVmsR";
+      var tenpay = "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&f=wallet&a=1&ac=CAEQq9LxnQIYvtmW-AU%3D_xxx_sign&u=599550251&n=%E2%98%BB";
+      var paypal = "https://paypal.me/yangyuanzheng";
+
+      var myname = "楊遠徵";
+      var profile = "https://i.ssss.fun/HI.png";
+
+      var title = "选择您的支付方式";
+      var subtitle = "确认收款人为" + myname + "后再付款";
+
+      var debugmode = "true";
+      var qrcodeapi = "https://www.zhihu.com/qrcode?url=";
+      // var qrcodeapi = "https://chart.googleapis.com/chart?chs=500x500&cht=qr&chld=L|1&choe=UTF-8&chl="; // Inaccessible in China. Backup use only.
+      </script>
+    <div class="main" id="h">
+      <i id="i"></i>
+      <h2 id="name"></h2>
+      <p id="description" style="font-weight: lighter"></p>
+      <!-- Button Part Starts -->
+      <div id="pending">
+        <p id="depends" class="middlebtn">
+          <a href="#showqrcode" class="btn btn-primary" onclick="openzpay()">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-Z-Pay"></use>
+            </svg>
+          </a>
+          <a href="#showqrcode" class="btn btn-primary" onclick="openunionpay()">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-UnionPay"></use>
+            </svg>
+          </a>
+          <a href="#showqrcode" class="btn btn-primary" onclick="openalipay()">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-Alipay"></use>
+            </svg>
+          </a>
+          <a href="#showqrcode" class="btn btn-primary" onclick="openwechat()" id="toclick">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-WeChat-Pay"></use>
+            </svg>
+          </a>
+          <a href="#showqrcode" class="btn btn-primary" onclick="opentenpay()">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-QQ-Pay"></use>
+            </svg>
+          </a>
+          <button class="btn btn-primary" id="paypalbtn" onclick="openbox()">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-PayPal"></use>
+            </svg>
+          </button>
+        </p>
+      </div>
+      <!-- Button Part Ends -->
+      <!-- Modal Part Starts -->
+      <div class="modal" id="showqrcode">
+        <div class="modal-container" role="document">
+          <div class="modal-header" id="btncontainer">
+            <a href="#" class="btn btn-clear float-right" id="qrcodeclose" aria-label="Close"></a>
+            <div id="titleinfo" class="modal-title h5" style="text-align: center"></div>
+          </div>
+          <div class="modal-body">
+            <div class="content" id="qrcontainer">
+              <div id="currentqrcode" class="img smaller"></div>
+              <!-- qrcode imported here -->
+              <img id="tenpayonly" class="img smaller">
+              <!-- if mobile qq, qrcode imported here --></div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Part Ends -->
+      <script src="./jquery.min.js"></script>
+      <script src="./jquery-qrcode.min.js"></script>
+      <script src="./function.min.js"></script>
+      <script src="./iconfont.min.js"></script>
+      <script type="text/javascript" src="https://cdn.ssss.fun/z/3/pay_ssss_fun.js"></script>
+  </body>
+
+</html>
