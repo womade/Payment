@@ -147,7 +147,7 @@ img {
 }
 
 footer {
-  bottom: 0;
+  bottom: 5px;
   cursor: default;
   left: 0;
   position: absolute;
